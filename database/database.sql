@@ -26,6 +26,14 @@ CREATE TABLE INSCRIPCION_MATERIAS(
     PRIMARY KEY(id_estudiante,id_materia)
 );
 
+CREATE TABLE REGISTROS_PETICIONES(
+    id_registro INT NOT NULL AUTO_INCREMENT,
+    fecha_registro DATETIME NOT NULL,
+    estado VARCHAR(10) NOT NULL,
+    descripcion VARCHAR(20) NOT NULL,
+    PRIMARY KEY(id_registro)
+);
+
 ALTER TABLE INSCRIPCION_MATERIAS ADD (
     CONSTRAINT ins_fk_ide FOREIGN KEY (id_estudiante) REFERENCES ESTUDIANTES(id_estudiante),
     CONSTRAINT ins_fk_idm FOREIGN KEY (id_materia) REFERENCES MATERIAS(id_materia)
